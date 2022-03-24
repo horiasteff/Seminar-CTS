@@ -3,31 +3,26 @@ package model;
 import java.util.ArrayList;
 
 public class Order {
-    private ArrayList<Product> l;
-    private String addr;
+    private int id;
+    private ArrayList<Product> productList;
+    private String address;
 
-    public Order()
+    public Order(int id)
     {
-        l = new ArrayList<Product>();
+        this.id = id;
+        productList = new ArrayList<>();
     }
-    public void add(Product p)
+    public void addProductToList(Product p)
     {
-        if(l.size() > 99)
+        if(productList.size() > 99)
             return;
-
-        l.add(p);
+        productList.add(p);
     }
 
-    public void remove(Product p)
+    public void removeProduct(Product p)
     {
-        l.remove(p);
+        productList.remove(p);
     }
 
-    public String getAddr() {
-        return addr;
-    }
 
-    public void setAddr(String addr) {
-        this.addr = addr;
-    }
 }

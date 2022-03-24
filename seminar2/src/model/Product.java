@@ -16,12 +16,12 @@ public class Product {
     public Product(int id, String name, double price, String description) throws Exception {
         this.id = id;
         if(name.length() < 6){
-            throw new StringMinLengthException();
+            throw new StringMinLengthException("Input is too short");
         }else{
             this.name = name;
         }
         if(price < 0){
-            throw new InvalidPriceValueException();
+            throw new InvalidPriceValueException("Invalid price");
         }else{
             this.price = price;
         }
@@ -32,12 +32,12 @@ public class Product {
     {
         this.id = p.id;
         if(p.name.length() < 6){
-            throw new StringMinLengthException();
+            throw new StringMinLengthException("Input is too short");
         }else{
             this.name = p.name;
         }
         if(p.price < 0){
-            throw new InvalidPriceValueException();
+            throw new InvalidPriceValueException("Invalid price");
         }else{
             this.price = p.price;
         }
@@ -53,7 +53,7 @@ public class Product {
 
     public void applyPercentageDiscount(float percentageDiscount) throws Exception{
         if(percentageDiscount < 0 || percentageDiscount > 1){
-            throw new PercentageValueException();
+            throw new PercentageValueException("Invalid percentage");
         }else{
             this.price -= this.price* percentageDiscount / 100;
         }
@@ -61,14 +61,14 @@ public class Product {
 
     public void applyAmountDiscount(double amountDiscount) throws Exception {
         if(amountDiscount > this.price){
-            throw new PriceAmountException();
+            throw new PriceAmountException("Invalid amount");
         }
         this.price -= amountDiscount;
     }
 
     public void increasePricePercentage(float pricePercentage) throws Exception{
         if(pricePercentage < 0 || pricePercentage > 1){
-            throw new PercentageValueException();
+            throw new PercentageValueException("Invalid percentage");
         }else{
             this.price += this.price* pricePercentage / 100;
         }
@@ -76,7 +76,7 @@ public class Product {
 
     public void increasePriceAmount(double priceAmount) throws Exception{
         if(priceAmount > this.price){
-            throw new PriceAmountException();
+            throw new PriceAmountException("Invalid amount");
         }
         this.price -= priceAmount;
     }

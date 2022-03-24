@@ -14,17 +14,17 @@ public class User {
 
     public User(String username, int id, String name) throws Exception {
         if(username.length() < 5){
-            throw new StringMinLengthException();
+            throw new StringMinLengthException("Input is too short");
         }else{
             this.username = username;
         }
         if(id < 1){
-            throw new IdentifierValueException();
+            throw new IdentifierValueException("Invalid identifier");
         }else{
             this.id = id;
         }
         if(name.length() < 10){
-            throw new StringMinLengthException();
+            throw new StringMinLengthException("Input is too short");
         }else{
             this.name = name;
         }
@@ -32,12 +32,12 @@ public class User {
         orderHistory =new ArrayList<Order>();
     }
 
-    public void addOrderToHistory(Order o)
+    public void addOrderToHistory(Order order)
     {
-        this.orderHistory.add(o);
+        this.orderHistory.add(order);
     }
 
-    public void addProductToCart(Product p)
+    public void addProductToCart(Product product)
     {
        // this.shoppingCart.add(o);
     }

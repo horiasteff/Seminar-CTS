@@ -1,5 +1,7 @@
 package exceptions;
 
 public class StringMinLengthException extends Exception {
-    //length >= 5
+    public StringMinLengthException(String message){
+        super(message);
+    }
 }
