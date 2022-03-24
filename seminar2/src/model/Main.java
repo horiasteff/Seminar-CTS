@@ -7,18 +7,22 @@ public class Main {
         // write your code here
         OShop o = new OShop("Emag", "logo.jpg", new ArrayList<Product>());
 
-        Product p1 = new Product("Laptop", 3200.5, 1,1, 1123, "");
-        Product p2 = new Product("Frigider", 207.95, 1,2, 1245, "");
+        Product p1 = null;
+        try {
+            p1 = new Product(1, "Laptop", 150.5,"");
+            Product p2 = new Product(2, "Frigider", 207.95,  "");
+            Product p3 = new Product(p1);
+            o.modifyProductsList(1,p1);
+            o.modifyProductsList(1,p2);
 
-        Product p3 = new Product(p1);
+            o.modifyProductsList(2, p1);
+            System.out.println(p1.equals(p2));
 
-        //p3.setQty(5);
-        p3.setName("Paine");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
-        o.modifyProductsList(1,p1);
-        o.modifyProductsList(1,p2);
 
-        o.modifyProductsList(2, p1);
-        System.out.println(p1.equals(p2));
+
     }
 }
