@@ -1,7 +1,5 @@
 package model;
 
-import java.util.ArrayList;
-
 public class Main {
     public static void main(String[] args) {
         OnlineShop o = new OnlineShop(1,"Emag", "logo.jpg");
